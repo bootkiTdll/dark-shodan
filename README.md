@@ -41,7 +41,7 @@
 ---
 
 ## Project Structure
-```py
+```bash
 └── dark-shodan/ # Main directory
     ├── LICENSE # GPL-3.0 License
     ├── README.md # Readme
@@ -59,7 +59,7 @@
     │       ├── ftp_anonymouse_login.py # A module for searching FTP servers with anonymous login enabled.
     │       ├── mongodb_disabledAuth.py # MongoDB server search module without authorization
     │       ├── vnc_disabledAuth.py # A module for searching for VNC servers without authorization.
-    └───────|
+    └────────
 ```
 
 ---
