@@ -43,19 +43,23 @@
 ## Project Structure
 ```bash
 └── dark-shodan/ # Main directory
-├── config.json # Configuration file 
-├── dark_shodan.py # Main application entry point  
-├── eng.lng # English language strings  
-├── ru.lng # Russian language strings  
-├── modules/ # Directory for modules  
-│ ├── comfyui_module.py # Module for detecting vulnerable ComfyUI instances  
-│ ├── vnc_disabledAuth.py # A module for searching for VNC servers without authentication.  
-│ ├── mongodb_disabledAuth.py # A module for searching for MongoDB servers without authentication.  
-│ ├── ftp_anonymouse_login.py # A module for searching FTP servers with anonymous login enabled.
-│ ├── eng_example.py # Example module (English)  
-│ ├── ru_example.py # Example module (Russian)
-│ └── easy_example.py # Easy example module
-└── requirements.txt # Python dependencies
+    ├── LICENSE # GPL-3.0 License
+    ├── README.md # Readme
+    ├── config.json # Configuration file 
+    ├── dark_shodan.py # Main script
+    ├── eng.lng # English language strings  
+    ├── requirements.txt # Python dependencies
+    ├── ru.lng # Russian language strings
+    ├── standard_filter.json # Standark filter config for "find" command
+    │   └── modules/ # Modules directory
+    │       ├── comfyui_module.py # Module for detecting vulnerable ComfyUI instances 
+    │       ├── easy_example.py # Easy example module
+    │       ├── eng_example.py # Example module (English)
+    │       ├── ru_example.py # Example module (Russian)
+    │       ├── ftp_anonymouse_login.py # A module for searching FTP servers with anonymous login enabled.
+    │       ├── mongodb_disabledAuth.py # MongoDB server search module without authorization
+    │       ├── vnc_disabledAuth.py # A module for searching for VNC servers without authorization.
+    └───────│
 ```
 
 ---
