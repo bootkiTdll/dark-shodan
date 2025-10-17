@@ -1,0 +1,18 @@
+{
+    "display": {
+        "table_format": {
+            "columns": [
+                {"name": "IP:Port", "field": "ip_port", "width": 16},
+                {"name": "Organization", "field": "org", "width": 15},
+                {"name": "Location", "field": "location", "width": 15}
+            ],
+            "show_timestamp": false,
+            "show_hostnames": false
+        }
+    },
+    
+    "output": {
+        "max_results": 50,
+        "save_to_json": true
+    }
+}
