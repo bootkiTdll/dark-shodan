@@ -53,7 +53,7 @@
 │ ├── mongodb_disabledAuth.py # A module for searching for MongoDB servers without authentication.  
 │ ├── ftp_anonymouse_login.py # A module for searching FTP servers with anonymous login enabled.
 │ ├── eng_example.py # Example module (English)  
-│ └── ru_example.py # Example module (Russian)
+│ ├── ru_example.py # Example module (Russian)
 │ └── easy_example.py # Easy example module
 └── requirements.txt # Python dependencies
 ```
