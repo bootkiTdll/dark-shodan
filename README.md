@@ -83,22 +83,13 @@
     
 ```json
 {
-
 "language": "ru",
-
 "default:max_results": 50,
-
-
 "default:min_requests": 10,
-
 "autoconnect:enable": false,
-
 "autoconnect:api_key_file": "api_keys.txt",
-
 "autoconnect:min_requests": 10,
-
 "modules_path": "modules"
-
 }
 ```
         
