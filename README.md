@@ -41,7 +41,7 @@
 ---
 
 ## Project Structure
-```
+```bash
 └── dark-shodan/ # Main directory
     ├── LICENSE # GPL-3.0 License
     ├── README.md # Readme
