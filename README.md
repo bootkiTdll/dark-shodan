@@ -50,7 +50,7 @@
     ├── eng.lng # English language strings  
     ├── requirements.txt # Python dependencies
     ├── ru.lng # Russian language strings
-    ├── standard_filter.json # Standark filter config for "find" command
+    ├── standart_filter.json # Standart filter config for "find" command
     │   └── modules/ # Modules directory
     │       ├── comfyui_module.py # Module for detecting vulnerable ComfyUI instances 
     │       ├── easy_example.py # Easy example module
@@ -59,7 +59,7 @@
     │       ├── ftp_anonymouse_login.py # A module for searching FTP servers with anonymous login enabled.
     │       ├── mongodb_disabledAuth.py # MongoDB server search module without authorization
     │       ├── vnc_disabledAuth.py # A module for searching for VNC servers without authorization.
-    └───────│
+    └───────|
 ```
 
 ---
