@@ -122,6 +122,12 @@ use <number/name>
 
 DARK-SHODAN uses modules to search for specific vulnerabilities. The `modules/` directory contains:
 
+-  **FTP Anonymous Login Module**: Searches for FTP servers that allow anonymous login.
+
+-  **VNC Disabled Authentication Module**: Identifies VNC servers (ports 5900/5901) that explicitly report "authentication disabled" in their banner.
+
+-  **MongoDB Disabled Authentication Module**: Detects MongoDB instances with authentication disabled.
+
 -   **ComfyUI Module**: Searches for vulnerable instances of ComfyUI.
     
 -   **Example Modules**: Provide a template for creating your own modules in both English and Russian.
