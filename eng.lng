@@ -1,0 +1,87 @@
+{
+    "banner": "Dark Shodan - Device Finder Tool",
+    "modules_loaded": "Modules loaded: {}",
+    "prompt": "dark_shodan>",
+
+    "enter_api_key": "Enter API key:",
+
+    "commands": {
+        "search": "search <query> - Search modules",
+        "use": "use <number/name> - Select module",
+        "run": "run [query] - Run selected module",
+        "connect": "connect - Connect to Shodan API",
+        "autoconnect": "autoconnect <file> <requests> - Auto-connect using API key file",
+        "set_lang": "set lang <ru/eng> - Change language",
+        "set_cfg": "set cfg <filename> - Load configuration",
+        "clear": "clear - Clear terminal",
+        "help": "help - Show help",
+        "exit": "exit - Exit"
+    },
+
+    "errors": {
+        "module_load": "Error loading module {}: {}",
+        "connect": "Connection error: {}",
+        "file_not_found": "File {} not found.",
+        "api_keys_found": "API keys found: {}",
+        "key_check": "Checking key: {}... - requests: {}",
+        "key_error": "Key check error {}...: {}",
+        "suitable_key": "Suitable key found! Available requests: {}",
+        "no_suitable_keys": "No suitable keys found with minimum {} requests.",
+        "file_read_error": "File read error: {}",
+        "unknown_command": "Unknown command. Type 'help' for help.",
+        "module_not_found": "Modules not found.",
+        "search_results": "Modules found:",
+        "module_used": "Using module: {}",
+        "invalid_module": "Invalid module number.",
+        "module_not_found_single": "Module not found.",
+        "select_module_first": "Select a module first using 'use' command.",
+        "search_first": "Search for modules first.",
+        "specify_module": "Specify module number or name.",
+        "invalid_requests": "Specify correct number of requests.",
+        "autoconnect_usage": "Usage: autoconnect <file> <minimum_requests>",
+        "lang_usage": "Usage: set lang <ru/eng>",
+        "lang_changed": "Language changed to: {}",
+        "invalid_lang": "Invalid language. Available: ru, eng",
+        "lang_load": "Language load error: {}",
+        "config_load": "Configuration load error: {}",
+        "generic": "Error: {}",
+        "direct_search_error": "Error during direct search: {}",
+        "filter_load_error": "Error loading filter config: {}",
+        "no_results": "No results found",
+        "no_results_filtered": "No results after filtering"
+    },
+
+    "success": {
+        "connected": "Successfully connected to Shodan!",
+        "available_requests": "Available requests: {}",
+        "module_executed": "Module executed successfully. Results saved.",
+        "exit": "Exiting...",
+        "config_loaded": "Configuration loaded from {}"
+    },
+
+    "search": {
+        "results": "Search results:",
+        "found_devices": "[+] Found {} devices:",
+        "executing_direct": "[+] Executing direct search: {}",
+        "max_results": "[+] Maximum results: {}",
+        "completed": "[+] Search completed. Total devices found: {}",
+        "results_saved": "[+] Results saved to: {}"
+    },
+    "autoconnect": {
+        "auto_connecting": "Auto-connecting..."
+    },
+    
+    "commands": {
+        "search": "search <query> - Search modules",
+        "find": "find <query> <filter> - Direct Shodan search with optional filtering",
+        "use": "use <number/name> - Select module",
+        "run": "run [query] - Run selected module",
+        "connect": "connect - Connect to Shodan API",
+        "autoconnect": "autoconnect <file> <requests> - Auto-connect using API key file",
+        "set_lang": "set lang <ru/eng> - Change language",
+        "set_cfg": "set cfg <filename> - Load configuration",
+        "clear": "clear - Clear terminal",
+        "help": "help - Show help",
+        "exit": "exit - Exit"
+    }
+}
