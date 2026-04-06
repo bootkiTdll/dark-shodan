@@ -1,9 +1,9 @@
 <div align="center">
   <img src="https://i.ibb.co/gL10KsMP/1760604184-1.png" width="30%" style="margin-bottom: 8px;">
-  <h1 style="margin-top: 0; margin-bottom: 0;">dark_shodan </h1>
+  <h1 style="margin-top: 0; margin-bottom: 0;">DARK-SHODAN </h1>
   <code>❯ A modular tool for finding vulnerable devices using the Shodan API</code>
   <br><br>
-  <img src="https://img.shields.io/github/last-commit/bootkiTdll/dark_shodan?style=for-the-badge&logo=git&logoColor=white&color=0080ff">
+  <img src="https://img.shields.io/github/last-commit/bootkiTdll/dark-shodan?style=for-the-badge&logo=git&logoColor=white&color=0080ff">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
   <img src="https://img.shields.io/badge/GPL--3.0-red?style=for-the-badge">
 
@@ -29,7 +29,7 @@
 
 ## Overview 
 
-**dark_shodan** is a lightweight Python CLI tool designed for automated scanning and discovery of vulnerable devices and services exposed on the internet using the Shodan API. It features a modular architecture for easy extension, multilingual interface support (English and Russian), and is ideal for security researchers and penetration testers conducting authorized reconnaissance.
+**DARK-SHODAN** is a lightweight Python CLI tool designed for automated scanning and discovery of vulnerable devices and services exposed on the internet using the Shodan API. It features a modular architecture for easy extension, multilingual interface support (English and Russian), and is ideal for security researchers and penetration testers conducting authorized reconnaissance.
 
 <sub><sup>**This readme was generated using AI and may contain errors.**</sup></sub>
 ### Features
@@ -42,7 +42,7 @@
 
 ## Project Structure
 ```bash
-└── dark_shodan/ # Main directory
+└── dark-shodan/ # Main directory
     ├── LICENSE # GPL-3.0 License
     ├── README.md # Readme
     ├── config.json # Configuration file 
@@ -53,12 +53,12 @@
     ├── standart_filter.json # Standart filter config for "find" command
     │   └── modules/ # Modules directory
     │       ├── comfyui_module.py # Module for detecting vulnerable ComfyUI instances 
-    │       ├── easy_example.py # Easy example module
-    │       ├── eng_example.py # Example module (English)
-    │       ├── ru_example.py # Example module (Russian)
     │       ├── ftp_anonymouse_login.py # A module for searching FTP servers with anonymous login enabled.
     │       ├── mongodb_disabledAuth.py # MongoDB server search module without authorization
     │       ├── vnc_disabledAuth.py # A module for searching for VNC servers without authorization.
+    │       ├── easy_example.py # Easy example module
+    │       ├── eng_example.py # Example module (English)
+    │       ├── ru_example.py # Example module (Russian)
     └────────
 ```
 
@@ -76,8 +76,8 @@
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/bootkiTdll/dark_shodan
-   cd dark_shodan
+   git clone https://github.com/bootkiTdll/dark-shodan
+   cd dark-shodan
 	```
 2. **Install dependencies**:
    ```bash
@@ -120,7 +120,7 @@ use <number/name>
 
 ## Modules
 
-dark_shodan uses modules to search for specific vulnerabilities. The `modules/` directory contains:
+DARK-SHODAN uses modules to search for specific vulnerabilities. The `modules/` directory contains:
 
 -  **FTP Anonymous Login Module**: Searches for FTP servers that allow anonymous login.
 
@@ -150,7 +150,7 @@ We welcome contributions! Please feel free to submit issues, feature requests, o
     
 2.  **Clone your fork**:
 ```bash
-git clone https://github.com/bootkiTdll/dark_shodan
+git clone https://github.com/bootkiTdll/dark-shodan
 ```
 3. **Create a Feature Branch**:
 ```bash
@@ -184,4 +184,4 @@ This project is distributed under the GPL-3.0 License. See the `LICENSE` file fo
 
 Thank you to all our contributors!
 
-<a href="https://github.com/bootkiTdll/dark_shodan/graphs/contributors"> <img src="https://contrib.rocks/image?repo=bootkiTdll/dark_shodan" /> </a>
+<a href="https://github.com/bootkiTdll/dark-shodan/graphs/contributors"> <img src="https://contrib.rocks/image?repo=bootkiTdll/dark-shodan" /> </a>
