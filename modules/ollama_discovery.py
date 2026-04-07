@@ -30,33 +30,52 @@ class ollama_discovery:
             return []
 
     def _verify_instances(self, matches):
+        import random
         verified = []
         print(f"[+] Found {len(matches)} potential instances. Starting verification...")
         
         for match in matches:
             ip = match['ip_str']
             port = match['port']
-            url = f"http://{ip}:{port}/api/generate"
-            payload = {
-                "model": "llama3.2",
-                "prompt": "Why is the sky blue?"
-            }
+            tags_url = f"http://{ip}:{port}/api/tags"
+            generate_url = f"http://{ip}:{port}/api/generate"
 
             try:
-                print(f"[*] Testing {ip}:{port}...", end="\r")
-                response = requests.post(url, json=payload, timeout=5)
-                if response.status_code == 200:
-                    print(f"[V] Valid response from {ip}:{port}                     ")
-                    verified.append({
-                        'ip': ip,
-                        'port': port,
-                        'org': match.get('org', 'Unknown'),
-                        'location': f"{match.get('country_name', 'Unknown')}/{match.get('city', 'Unknown')}",
-                        'status': 'Verified',
-                        'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    })
+                print(f"[*] Probing {ip}:{port}...", end="\r")
+                tags_response = requests.get(tags_url, timeout=5)
+                if tags_response.status_code == 200:
+                    models_data = tags_response.json()
+                    models_list = [m.get('name') for m in models_data.get('models', [])]
+                    
+                    if not models_list:
+                        print(f"[X] No models found on {ip}:{port}               ")
+                        continue
+                        
+                    test_model = random.choice(models_list)
+                    payload = {
+                        "model": test_model,
+                        "prompt": "Why is the sky blue?",
+                        "stream": False
+                    }
+                    
+                    print(f"[*] Testing generation on {ip}:{port} with {test_model}...", end="\r")
+                    gen_response = requests.post(generate_url, json=payload, timeout=5)
+                    
+                    if gen_response.status_code == 200:
+                        print(f"[V] Valid Ollama instance at {ip}:{port} ({len(models_list)} models)    ")
+                        verified.append({
+                            'ip': ip,
+                            'port': port,
+                            'org': match.get('org', 'Unknown'),
+                            'location': f"{match.get('country_name', 'Unknown')}/{match.get('city', 'Unknown')}",
+                            'status': 'Verified',
+                            'models': models_list,
+                            'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        })
+                    else:
+                        print(f"[X] Invalid generation status {gen_response.status_code} from {ip}:{port}   ")
                 else:
-                    print(f"[X] Invalid status {response.status_code} from {ip}:{port}   ")
+                    print(f"[X] Invalid tags status {tags_response.status_code} from {ip}:{port}   ")
             except requests.exceptions.RequestException:
                 pass
                 
@@ -68,17 +87,21 @@ class ollama_discovery:
             return
 
         print(f"\n[+] Found {len(devices)} verified Ollama instances:")
-        print("=" * 100)
-        print("IP:Port          | Organization     | Location          | Status")
-        print("-" * 100)
+        print("=" * 120)
+        print(f"{'IP:Port':<22} | {'Organization':<20} | {'Location':<25} | {'Models'}")
+        print("-" * 120)
 
         for d in devices:
             ip_port = f"{d['ip']}:{d['port']}"
-            org = d['org'][:16] + "..." if len(d['org']) > 16 else d['org']
-            location = d['location'][:19] + "..." if len(d['location']) > 19 else d['location']
-            print(f"{ip_port:<16} | {org:<19} | {location:<22} | {d['status']}")
+            org = d['org'][:18] + "..." if len(d['org']) > 18 else d['org']
+            location = d['location'][:22] + "..." if len(d['location']) > 22 else d['location']
+            models = ", ".join(d['models'][:3])
+            if len(d['models']) > 3:
+                models += f" (+{len(d['models'])-3} more)"
+            
+            print(f"{ip_port:<22} | {org:<20} | {location:<25} | {models or 'None'}")
 
-        print("=" * 100)
+        print("=" * 120)
         print(f"[+] Verification completed. Total verified: {len(devices)}")
 
     def _save_results(self, devices):
