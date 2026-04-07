@@ -1,26 +1,26 @@
 <div align="center">
-  <img src="https://i.ibb.co/gL10KsMP/1760604184-1.png" width="30%" style="margin-bottom: 8px;">
-  <h1 style="margin-top: 0; margin-bottom: 0;">DARK-SHODAN </h1>
-  <code>❯ A modular tool for finding vulnerable devices using the Shodan API</code>
+  <img src="assets/banner.png" width="100%" alt="DARK-SHODAN Banner">
+  <h1 style="margin-top: 10px; margin-bottom: 0;">DARK-SHODAN</h1>
+  <code>❯ A modular framework for discovery and reconnaissance of vulnerable assets via Shodan API</code>
   <br><br>
   <img src="https://img.shields.io/github/last-commit/bootkiTdll/dark-shodan?style=for-the-badge&logo=git&logoColor=white&color=0080ff">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
   <img src="https://img.shields.io/badge/GPL--3.0-red?style=for-the-badge">
-
 </div>
+
 <br>
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
+- [Key Features](#key-features)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Configuration](#configuration)
-- [Usage](#usage)
-- [Modules](#modules)
+  - [Initial Configuration](#initial-configuration)
+- [Usage Guide](#usage-guide)
+- [Modules Library](#modules-library)
 - [Disclaimer](#disclaimer)
 - [License](#license)
 - [Contributing](#contributing)
@@ -29,37 +29,39 @@
 
 ## Overview 
 
-**DARK-SHODAN** is a lightweight Python CLI tool designed for automated scanning and discovery of vulnerable devices and services exposed on the internet using the Shodan API. It features a modular architecture for easy extension, multilingual interface support (English and Russian), and is ideal for security researchers and penetration testers conducting authorized reconnaissance.
+**DARK-SHODAN** is a lightweight, cross-platform Python CLI tool designed for automated scanning and discovery of exposed services and vulnerable web assets using the Shodan API. Its modular architecture allows for seamless extension with custom logic, making it a versatile choice for security researchers and authorized penetration testing.
 
 <sub><sup>**This readme was generated using AI and may contain errors.**</sup></sub>
-### Features
 
-- **Modular Search System**: Easily extendable with custom modules for specific vulnerabilities (e.g., ComfyUI).
-- **Structured Output**: Clean, formatted results for easy analysis.
-- **Simple Configuration**: Easy setup via a single `config.json` file.
+### Key Features
+
+- **Modular Search Engine**: Rapidly develop and deploy custom modules for specific CVEs or misconfigurations.
+- **Dynamic Localization**: Built-in support for multiple languages (currently English and Russian).
+- **Structured Intelligence**: Clean terminal output with automatic session export to JSON for further analysis.
+- **Automatic Connection**: Supports API key rotation and automatic session establishment.
 
 ---
 
 ## Project Structure
+
 ```bash
-└── dark-shodan/ # Main directory
-    ├── LICENSE # GPL-3.0 License
-    ├── README.md # Readme
-    ├── config.json # Configuration file 
-    ├── dark_shodan.py # Main script
-    ├── eng.lng # English language strings  
-    ├── requirements.txt # Python dependencies
-    ├── ru.lng # Russian language strings
-    ├── standart_filter.json # Standart filter config for "find" command
-    │   └── modules/ # Modules directory
-    │       ├── comfyui_module.py # Module for detecting vulnerable ComfyUI instances 
-    │       ├── ftp_anonymouse_login.py # A module for searching FTP servers with anonymous login enabled.
-    │       ├── mongodb_disabledAuth.py # MongoDB server search module without authorization
-    │       ├── vnc_disabledAuth.py # A module for searching for VNC servers without authorization.
-    │       ├── easy_example.py # Easy example module
-    │       ├── eng_example.py # Example module (English)
-    │       ├── ru_example.py # Example module (Russian)
-    └────────
+└── dark-shodan/
+    ├── assets/               # Visual assets and banners
+    ├── modules/              # Core functionality modules
+    │   ├── comfyui_module.py        # Detection of vulnerable ComfyUI instances
+    │   ├── ftp_anonymouse_login.py  # Recognition of FTP servers with anonymous access
+    │   ├── linksys_webcams.py       # Discovery of unsecured Linksys cameras
+    │   ├── mongodb_disabledAuth.py  # Identification of MongoDB servers without auth
+    │   ├── vnc_disabledAuth.py      # Detection of VNC servers without authentication
+    │   ├── easy_example.py          # Simplified module template
+    │   ├── eng_example.py           # English documentation example
+    │   └── ru_example.py            # Russian documentation example
+    ├── dark_shodan.py        # Framework entry point
+    ├── config.json           # Global configuration and settings
+    ├── eng.lng               # English localization strings
+    ├── ru.lng                # Russian localization strings
+    ├── requirements.txt      # Dependency manifest
+    └── standart_filter.json  # Pre-configured search filters
 ```
 
 ---
@@ -68,9 +70,9 @@
 
 ### Prerequisites
 
-- **Python 3.6+** (tested on 3.13.9)
+- **Python 3.6+** (Tested on 3.13.9)
 - **Pip** (Python package manager)
--  **Shodan API Key** ([Get it here](https://account.shodan.io/))
+- **Shodan API Key** ([Obtain official key](https://account.shodan.io/))
 
 ### Installation
 
@@ -78,110 +80,96 @@
    ```bash
    git clone https://github.com/bootkiTdll/dark-shodan
    cd dark-shodan
-	```
+   ```
+
 2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-### Configuration
 
-1.  Obtain your API key from your [Shodan account page](https://account.shodan.io/).
-    
-2.  Edit the `config.json` file:
-    
+### Initial Configuration
+
+Ensure your `config.json` is correctly set up for your preferred environment:
+
 ```json
 {
-"language": "ru",
-"default:max_results": 50,
-"default:min_requests": 10,
-"autoconnect:enable": false,
-"autoconnect:api_key_file": "api_keys.txt",
-"autoconnect:min_requests": 10,
-"modules_path": "modules"
+  "language": "ru",
+  "default:max_results": 50,
+  "default:min_requests": 10,
+  "autoconnect:enable": false,
+  "autoconnect:api_key_file": "api_keys.txt",
+  "autoconnect:min_requests": 10,
+  "modules_path": "modules"
 }
 ```
-        
-----------
 
-## Usage
+---
 
-Run and use the tool from the directory:
+## Usage Guide
+
+Launch the framework:
 ```bash
 python dark_shodan.py
-
-connect <YOUR_API_KEY> // autoconnect <filename> <minimum available number of available requests>
-
-search <request>
-
-use <number/name>
 ```
 
-----------
+### Core Commands
 
-## Modules
+| Command | Description |
+| :--- | :--- |
+| `connect <KEY>` | Establish manual connection with Shodan API |
+| `autoconnect` | Automatically search for valid keys in `api_keys.txt` |
+| `search <query>` | Search for available modules matching the query |
+| `use <idx/name>` | Load and execute a specific module |
+| `help` | Display interactive command help |
 
-DARK-SHODAN uses modules to search for specific vulnerabilities. The `modules/` directory contains:
+---
 
--  **FTP Anonymous Login Module**: Searches for FTP servers that allow anonymous login.
+## Modules Library
 
--  **VNC Disabled Authentication Module**: Identifies VNC servers (ports 5900/5901) that explicitly report "authentication disabled" in their banner.
+DARK-SHODAN thrives on its extensibility. Current modules include:
 
--  **MongoDB Disabled Authentication Module**: Detects MongoDB instances with authentication disabled.
+- **FTP Anonymous Access**: Discovers servers allowing unauthenticated file access.
+- **Linksys Web Cameras**: Identifies Linksys cameras with default or no credentials.
+- **Exposed MongoDB**: Finds databases accessible without authentication.
+- **VNC Unsecured Sessions**: Locates VNC instances reporting disabled auth.
+- **ComfyUI Presence**: Specifically targets ComfyUI web interfaces for auditing.
 
--   **ComfyUI Module**: Searches for vulnerable instances of ComfyUI.
-    
--   **Example Modules**: Provide a template for creating your own modules in both English and Russian.
-    
+**To develop your own module:**
 
-**To create a new module:**
+1. Reference `modules/easy_example.py`.
+2. Define your Shodan query and the `execute` methodology.
+3. Drop the `.py` file into the `modules/` folder for auto-detection.
 
-1.  Check out the example modules
-    
-2.  Follow the structure to define your search query and output.
-    
-3.  Place the new `.py` file in the `modules/` directory. It will be automatically detected.
-    
-----------
+---
 
 ## Contributing
 
-We welcome contributions! Please feel free to submit issues, feature requests, or pull requests.
-1.  **Fork the Repository**
-    
-2.  **Clone your fork**:
-```bash
-git clone https://github.com/bootkiTdll/dark-shodan
-```
-3. **Create a Feature Branch**:
-```bash
-git checkout -b new-feature-x
-```
-4. **Commit your Changes**:
-```bash
-git commit -m 'Implemented new feature x.'
-```
-5. **Push to the Branch**:
-```bash
-git push origin new-feature-x
-```
-6.  **Open a Pull Request.**
-   
-----------
+We welcome contributions of all kinds!
+1. **Fork** the repository.
+2. Create a **Feature Branch** (`git checkout -b feature/AmazingFeature`).
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`).
+4. **Push** to the branch (`git push origin feature/AmazingFeature`).
+5. Open a **Pull Request**.
+
+---
 
 ## Disclaimer
 
-This tool is intended for **educational purposes and authorized security testing only**. The user is responsible for complying with all applicable laws. Unauthorized scanning and exploitation of computer systems is illegal. Use this tool responsibly and only on networks and devices you own or have explicit permission to test.
-   
-----------
+This tool is intended for **educational purposes and authorized security testing ONLY**. The developers are not responsible for misuse or damage caused by this software. Use it responsibly and within the bounds of the law.
+
+---
 
 ## License
 
-This project is distributed under the GPL-3.0 License. See the `LICENSE` file for more information.
-   
-----------
+Distributed under the **GPL-3.0 License**. See `LICENSE` for details.
+
+---
+
+
+## Acknowledgments
 
 ### Contributors
 
-Thank you to all our contributors!
-
-<a href="https://github.com/bootkiTdll/dark-shodan/graphs/contributors"> <img src="https://contrib.rocks/image?repo=bootkiTdll/dark-shodan" /> </a>
+<a href="https://github.com/bootkiTdll/dark-shodan/graphs/contributors"> 
+  <img src="https://contrib.rocks/image?repo=bootkiTdll/dark-shodan" /> 
+</a>
