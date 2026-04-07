@@ -55,7 +55,10 @@
     │   ├── ip_webcams.py            # Search for IP Webcams
     │   ├── linksys_webcams.py       # Discovery of unsecured Linksys cameras
     │   ├── mongodb_disabledAuth.py  # Identification of MongoDB servers without auth
+    │   ├── mongodb_express.py       # Search for MongoDB Express interfaces
     │   ├── north_korea.py           # Everything in North Korea
+    │   ├── octoprint.py             # Discovery of OctoPrint 3D printer controllers
+    │   ├── ollama_discovery.py      # Search and verify exposed Ollama AI instances
     │   ├── open_directories.py      # Open Lists of Files and Directories
     │   ├── vnc_disabledAuth.py      # Detection of VNC servers without authentication
     │   ├── easy_example.py          # Simplified module template
@@ -143,6 +146,9 @@ DARK-SHODAN thrives on its extensibility. Current modules include:
 - **IP Webcam Screenshots**: Finds IP Webcams with active screenshot availability.
 - **Open Directories**: Identifies exposed "Index of /" file and directory listings.
 - **North Korean Resources**: Scans all internet-exposed resources within North Korean IP ranges.
+- **MongoDB Express**: Searches for MongoDB Express administrative web interfaces.
+- **OctoPrint Controllers**: Discovers exposed OctoPrint 3D printer web controllers.
+- **Ollama AI Discovery**: Finds and actively verifies exposed Ollama AI instances by sending test generation requests.
 
 **To develop your own module:**
 
