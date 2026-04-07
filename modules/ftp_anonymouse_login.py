@@ -56,7 +56,7 @@ class ftp_anonymous_login:
             print(f"{ip_port:<16} | {org:<15} | {location}")
 
         print("=" * 100)
-        print(f"[+] Search completed. Total MongoDB instances found: {len(devices)}")
+        print(f"[+] Search completed. Total found: {len(devices)}")
 
         if devices:
             print(f"\n[+] Statistics:")
