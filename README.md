@@ -48,10 +48,15 @@
 └── dark-shodan/
     ├── assets/               # Visual assets and banners
     ├── modules/              # Core functionality modules
+    │   ├── blue_iris.py             # Webcams running on Blue Iris
+    │   ├── canon_webcams.py         # Canon-manufactured megapixel security cameras
     │   ├── comfyui_module.py        # Detection of vulnerable ComfyUI instances
     │   ├── ftp_anonymouse_login.py  # Recognition of FTP servers with anonymous access
+    │   ├── ip_webcams.py            # Search for IP Webcams
     │   ├── linksys_webcams.py       # Discovery of unsecured Linksys cameras
     │   ├── mongodb_disabledAuth.py  # Identification of MongoDB servers without auth
+    │   ├── north_korea.py           # Everything in North Korea
+    │   ├── open_directories.py      # Open Lists of Files and Directories
     │   ├── vnc_disabledAuth.py      # Detection of VNC servers without authentication
     │   ├── easy_example.py          # Simplified module template
     │   ├── eng_example.py           # English documentation example
@@ -133,6 +138,11 @@ DARK-SHODAN thrives on its extensibility. Current modules include:
 - **Exposed MongoDB**: Finds databases accessible without authentication.
 - **VNC Unsecured Sessions**: Locates VNC instances reporting disabled auth.
 - **ComfyUI Presence**: Specifically targets ComfyUI web interfaces for auditing.
+- **Blue Iris Remote View**: Searches for webcams running on Blue Iris.
+- **Canon Network Cameras**: Specifically targets Canon megapixel security cameras.
+- **IP Webcam Screenshots**: Finds IP Webcams with active screenshot availability.
+- **Open Directories**: Identifies exposed "Index of /" file and directory listings.
+- **North Korean Resources**: Scans all internet-exposed resources within North Korean IP ranges.
 
 **To develop your own module:**
 

@@ -4,17 +4,17 @@ import json
 import os
 from datetime import datetime
 
-class linksys_webcams:
+class north_korea:
     def __init__(self):
-        self.name = "Unsecured Linksys webcams"
-        self.description = "Search for unsecured Linksys webcams."
+        self.name = "Everything in North Korea"
+        self.description = "Search for all internet-exposed resources in North Korean network ranges."
 
     def execute(self, api, query="", max_results=50):
-        base_query = 'title:"+tm01+" has_screenshot:true'
+        base_query = 'net:175.45.176.0/22,210.52.109.0/24,77.94.35.0/24'
         final_query = f"{base_query} {query}".strip() if query else base_query
 
         try:
-            print(f"[+] Executing Linksys search: {final_query}")
+            print(f"[+] Executing North Korea search: {final_query}")
             print(f"[+] Maximum results: {max_results}")
             results = api.search(final_query, limit=max_results)
             filtered = self._filter_results(results['matches'])
@@ -35,29 +35,29 @@ class linksys_webcams:
                 'location': f"{match.get('country_name', 'Unknown')}/{match.get('city', 'Unknown')}",
                 'hostnames': match.get('hostnames', []),
                 'timestamp': match.get('timestamp', 'Unknown'),
-                'title': match.get('http', {}).get('title', 'Unknown')
+                'content': match.get('data', 'No data')[:100].replace('\n', ' ')
             })
         return filtered
 
     def _display_results(self, devices):
         if not devices:
-            print("[!] No Linksys webcams found")
+            print("[!] No resources found in North Korea")
             return
 
-        print(f"\n[+] Found {len(devices)} Linksys webcams:")
+        print(f"\n[+] Found {len(devices)} resources in North Korea:")
         print("=" * 100)
-        print("IP:Port          | Organization     | Location          | Title")
+        print("IP:Port          | Organization     | Location          | Snippet")
         print("-" * 100)
 
         for d in devices:
             ip_port = f"{d['ip']}:{d['port']}"
-            org = d['org'][:15] + "..." if len(d['org']) > 15 else d['org']
-            location = d['location'][:17] + "..." if len(d['location']) > 17 else d['location']
-            title = d['title'][:15] + "..." if len(d['title']) > 15 else d['title']
-            print(f"{ip_port:<16} | {org:<16} | {location:<19} | {title}")
+            org = d['org'][:16] + "..." if len(d['org']) > 16 else d['org']
+            location = d['location'][:19] + "..." if len(d['location']) > 19 else d['location']
+            snippet = d['content'][:15] + "..." if len(d['content']) > 15 else d['content']
+            print(f"{ip_port:<16} | {org:<19} | {location:<22} | {snippet}")
 
         print("=" * 100)
-        print(f"[+] Search completed. Total devices found: {len(devices)}")
+        print(f"[+] Search completed. Total resources found: {len(devices)}")
 
     def _save_results(self, devices):
         if not devices:
@@ -67,7 +67,7 @@ class linksys_webcams:
         os.makedirs(results_dir, exist_ok=True)
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"linksys_webcams-{timestamp}.json"
+        filename = f"north_korea-{timestamp}.json"
         filepath = os.path.join(results_dir, filename)
 
         with open(filepath, 'w', encoding='utf-8') as f:
