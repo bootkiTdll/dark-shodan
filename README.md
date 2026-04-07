@@ -180,6 +180,11 @@ Distributed under the **GPL-3.0 License**. See `LICENSE` for details.
 
 ### Contributors
 
-<a href="https://github.com/bootkiTdll/dark-shodan/graphs/contributors"> 
-  <img src="https://contrib.rocks/image?repo=bootkiTdll/dark-shodan" /> 
-</a>
+<div align="left">
+  <a href="https://github.com/bootkiTdll/dark-shodan/graphs/contributors"> 
+    <img src="https://contrib.rocks/image?repo=bootkiTdll/dark-shodan" /> 
+  </a>
+  <a href="https://gemini.google.com/">
+    <img src="assets/gemini.jpg" width="64" height="64" style="border-radius: 50%;" alt="Gemini AI">
+  </a>
+</div>
